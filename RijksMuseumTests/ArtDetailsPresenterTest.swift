@@ -72,8 +72,8 @@ class ArtDetailsPresenterTest: XCTestCase {
 
     }
 
-    func makeSut(view: ArtDetailsView, interactor: ArtDetailsInteracting, router: ArtDetailsRouting? = nil) -> ArtDetailsPresenter {
-        let presenter = ArtDetailsPresenter(view: view, interactor: interactor)
+    func makeSut(view: ArtDetailsView, interactor: ArtDetailsInteracting, router: ArtDetailsRouting? = nil, artId: String = "artId") -> ArtDetailsPresenter {
+        let presenter = ArtDetailsPresenter(view: view, interactor: interactor, artId: artId)
         presenter.router = router
         return presenter
     }
@@ -102,33 +102,30 @@ class ArtDetailsPresenterTest: XCTestCase {
 
     func test_artDetailsPresenter_onLoadArt_loadsArtDetailsFromInteractor() {
 
-        let artId = "artId"
         let view = View()
         let interactor = Interactor()
 
         let sut = makeSut(view: view, interactor: interactor)
 
-        sut.loadArt(artId: artId)
+        sut.loadArt()
 
         XCTAssertTrue(interactor.loadArtDetailsCalled)
     }
 
     func test_artDetailsPresenter_onLoadArt_loadsArtDetailsFromInteractorOnce() {
 
-        let artId = "artId"
         let view = View()
         let interactor = Interactor()
 
         let sut = makeSut(view: view, interactor: interactor)
 
-        sut.loadArt(artId: artId)
+        sut.loadArt()
 
         XCTAssertEqual(interactor.loadArtDetailsCalls, 1)
     }
 
     func test_artDetailsPresenter_onLoadArt_loadsArtDetailsFromInteractorWithId() {
 
-        let artId = "artId"
         var loadedId: String?
         let view = View()
         let interactor = Interactor()
@@ -139,14 +136,13 @@ class ArtDetailsPresenterTest: XCTestCase {
 
         let sut = makeSut(view: view, interactor: interactor)
 
-        sut.loadArt(artId: artId)
+        sut.loadArt()
 
         XCTAssertEqual(loadedId, loadedId)
     }
 
     func test_artDetailsPresenter_onLoadArt_loadArtDetailsSuccessTellsViewToUpdateDetails() {
 
-        let artId = "artId"
         let artDetails = ArtDetails.mocked
         let view = View()
         let interactor = Interactor()
@@ -157,14 +153,13 @@ class ArtDetailsPresenterTest: XCTestCase {
 
         let sut = makeSut(view: view, interactor: interactor)
 
-        sut.loadArt(artId: artId)
+        sut.loadArt()
 
         XCTAssertTrue(view.updateDetailsCalled)
     }
 
     func test_artDetailsPresenter_onLoadArt_loadArtDetailsSuccessTellsViewToUpdateDetailsOnce() {
 
-        let artId = "artId"
         let artDetails = ArtDetails.mocked
         let view = View()
         let interactor = Interactor()
@@ -175,14 +170,14 @@ class ArtDetailsPresenterTest: XCTestCase {
 
         let sut = makeSut(view: view, interactor: interactor)
 
-        sut.loadArt(artId: artId)
+        sut.loadArt()
 
         XCTAssertEqual(view.updateDetailsCalls, 1)
     }
 
     func test_artDetailsPresenter_onLoadArt_loadArtDetailsSuccessTellsViewToUpdateDetailsWithModel() {
 
-        let artId = "artId"
+        let artId = "id"
         let artDetails = ArtDetails.mocked
         var loadedModel:ArtDetailsViewModel.ArtDetails?
         let view = View()
@@ -196,16 +191,15 @@ class ArtDetailsPresenterTest: XCTestCase {
             loadedModel = model
         }
 
-        let sut = makeSut(view: view, interactor: interactor)
+        let sut = makeSut(view: view, interactor: interactor, artId: artId)
 
-        sut.loadArt(artId: artId)
+        sut.loadArt()
 
         XCTAssertEqual(loadedModel, artDetails.artDetailsViewModel)
     }
 
     func test_artDetailsPresenter_onLoadArt_loadArtDetailsFailureTellsViewToDisplayError() {
 
-        let artId = "artId"
         let view = View()
         let interactor = Interactor()
 
@@ -215,14 +209,13 @@ class ArtDetailsPresenterTest: XCTestCase {
 
         let sut = makeSut(view: view, interactor: interactor)
 
-        sut.loadArt(artId: artId)
+        sut.loadArt()
 
         XCTAssertTrue(view.displayErrorCalled)
     }
 
     func test_artDetailsPresenter_onLoadArt_loadArtDetailsSuccessLoadsImage() {
 
-        let artId = "artId"
         let artDetails = ArtDetails.mocked
         let view = View()
         let interactor = Interactor()
@@ -233,14 +226,13 @@ class ArtDetailsPresenterTest: XCTestCase {
 
         let sut = makeSut(view: view, interactor: interactor)
 
-        sut.loadArt(artId: artId)
+        sut.loadArt()
 
         XCTAssertTrue(interactor.loadArtDetailsImageDataCalled)
     }
 
     func test_artDetailsPresenter_onLoadArt_loadArtDetailsSuccessWithLoadsImageSuccessUpdateViewImage() {
 
-        let artId = "artId"
         let artDetails = ArtDetails.mocked
         let imageData = UIImage.init(systemName: "heart.fill")!.pngData()!
         var loadedImageData: Data?
@@ -260,14 +252,13 @@ class ArtDetailsPresenterTest: XCTestCase {
 
         let sut = makeSut(view: view, interactor: interactor)
 
-        sut.loadArt(artId: artId)
+        sut.loadArt()
 
         XCTAssertEqual(loadedImageData, imageData)
     }
 
     func test_artDetailsPresenter_onLoadArt_loadArtDetailsSuccessAndLoadsImageFailureTellsViewToDisplayError() {
 
-        let artId = "artId"
         let view = View()
         let interactor = Interactor()
 
@@ -281,7 +272,7 @@ class ArtDetailsPresenterTest: XCTestCase {
 
         let sut = makeSut(view: view, interactor: interactor)
 
-        sut.loadArt(artId: artId)
+        sut.loadArt()
 
         XCTAssertTrue(view.displayErrorCalled)
     }

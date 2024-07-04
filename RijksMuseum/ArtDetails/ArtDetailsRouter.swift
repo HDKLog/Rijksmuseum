@@ -1,20 +1,19 @@
 import UIKit
 
 protocol ArtDetailsRouting {
-
     func routeToCollection()
 }
 
 class ArtDetailsRouter: ArtDetailsRouting {
 
-    let artDetailsViewController: ArtDetailsViewController!
+    let navigationController: UINavigationController!
 
-    init(artDetailsViewController: ArtDetailsViewController) {
-        self.artDetailsViewController = artDetailsViewController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
 
     func routeToCollection() {
-        artDetailsViewController.navigationController?.popViewController(animated: true)
+        navigationController.popViewController(animated: true)
     }
 
 }

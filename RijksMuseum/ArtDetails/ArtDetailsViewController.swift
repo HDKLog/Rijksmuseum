@@ -54,6 +54,7 @@ class ArtDetailsViewController: UIViewController, ArtDetailsView {
         super.viewWillAppear(animated)
         imageView.showAnimatedGradientSkeleton()
         contentView.showAnimatedGradientSkeleton()
+        presenter?.loadArt()
     }
 
     private func setup() {
@@ -156,14 +157,4 @@ class ArtDetailsViewController: UIViewController, ArtDetailsView {
     func backToCollection(sender: AnyObject) {
         presenter?.routBack()
     }
-}
-
-extension ArtDetailsViewController: CollectionRoutingEndpoint {
-    var collectionView: UIViewController { self }
-
-    func loadArtDetail(artId: String) {
-        presenter?.loadArt(artId: artId)
-    }
-
-
 }

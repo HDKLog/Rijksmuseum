@@ -2,7 +2,7 @@ import Foundation
 
 protocol ArtDetailsPresenting {
     func loadView()
-    func loadArt(artId: String)
+    func loadArt()
     func routBack()
 }
 
@@ -10,17 +10,20 @@ class ArtDetailsPresenter: ArtDetailsPresenting {
     let view: ArtDetailsView!
     let interactor: ArtDetailsInteracting!
     var router: ArtDetailsRouting?
+    let artId: String
 
-    init(view: ArtDetailsView, interactor: ArtDetailsInteracting) {
+    init(view: ArtDetailsView, interactor: ArtDetailsInteracting, artId: String) {
         self.view = view
         self.interactor = interactor
+        self.artId = artId
     }
 
     func loadView() {
         view.configure(with: ArtDetailsViewModel.InitialInfo(backButtonTitle: "◀︎ Collection"))
+        loadArt()
     }
 
-    func loadArt(artId: String) {
+    func loadArt() {
         interactor.loadArtDetails(artId: artId) { [weak self] result in
             switch result {
             case let .success(artDetails):

@@ -15,10 +15,10 @@ class ArtDetailsViewControllerTests: XCTestCase {
 
         var loadArtCalled: Bool { loadArtCalls > 0 }
         var loadArtCalls: Int = 0
-        var loadArtClosure:(String) -> Void = {_ in }
-        func loadArt(artId: String) {
+        var loadArtClosure:() -> Void = { }
+        func loadArt() {
             loadArtCalls += 1
-            loadArtClosure(artId)
+            loadArtClosure()
         }
 
         var routBackCalled: Bool { routBackCalls > 0 }
@@ -41,6 +41,15 @@ class ArtDetailsViewControllerTests: XCTestCase {
         let sut = makeSut(presenter: presenter)
 
         sut.loadViewIfNeeded()
+
+        XCTAssertTrue(presenter.loadViewCalled)
+    }
+
+    func test_viewController_onViewWillAppear_callsLoadArt() {
+        let presenter = Presenter()
+        let sut = makeSut(presenter: presenter)
+
+        sut.beginAppearanceTransition(true, animated: true)
 
         XCTAssertTrue(presenter.loadViewCalled)
     }

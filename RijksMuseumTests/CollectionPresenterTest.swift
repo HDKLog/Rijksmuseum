@@ -55,7 +55,7 @@ final class CollectionPresenterTest: XCTestCase {
         var routeToArtDetailCalled: Bool { routeToArtDetailCalls > 0 }
         var routeToArtDetailCalls: Int = 0
         var routeToArtDetailClosure: (String) -> Void = {_ in }
-        func routeToArtDetail(ardId: String) {
+        func routeToArtDetail(artId ardId: String) {
             routeToArtDetailCalls += 1
             routeToArtDetailClosure(ardId)
         }

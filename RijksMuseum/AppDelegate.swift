@@ -9,10 +9,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow()
 
-        let artDetailsViewController = createArtDetails()
-        let collectionViewController = createCollection(endView: artDetailsViewController, routingEndpoint: artDetailsViewController)
+        let navigationController = UINavigationController()
+        let service = Service()
+        let gateway = RijksmuseumArtGateway(service: service)
+        let artDetailsViewFactory = ArtDetailsViewFactory(navigationController: navigationController, gateway: gateway)
+        let collectionViewFactory = CollectionViewFactory(navigationController: navigationController, gateway: gateway, detailsViewFactory: artDetailsViewFactory)
 
-        window?.rootViewController = UINavigationController(rootViewController: collectionViewController)
+        let collectionView = collectionViewFactory.createCollectionView()
+
+        navigationController.setViewControllers([collectionView], animated: false)
+
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
 
         return true
