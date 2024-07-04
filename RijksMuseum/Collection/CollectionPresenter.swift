@@ -92,10 +92,6 @@ class CollectionPresenter: CollectionPresenting {
         }
     }
 
-    func reload() {
-        loadCollection()
-    }
-
     private func updateNext(page: CollectionPage) {
         collectionPages.append(page)
         view.updateCollection()

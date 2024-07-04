@@ -8,9 +8,9 @@ class CollectionViewFactory: CollectionViewFactoring {
 
     private let navigationController: UINavigationController!
     private let gateway: ArtGateway
-    private let detailsViewFactory: ArtDetailsViewFactory
+    private let detailsViewFactory: ArtDetailsViewFactoring
 
-    init(navigationController: UINavigationController!, gateway: ArtGateway, detailsViewFactory: ArtDetailsViewFactory) {
+    init(navigationController: UINavigationController!, gateway: ArtGateway, detailsViewFactory: ArtDetailsViewFactoring) {
         self.navigationController = navigationController
         self.gateway = gateway
         self.detailsViewFactory = detailsViewFactory

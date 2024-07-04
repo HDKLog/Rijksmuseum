@@ -7,9 +7,9 @@ protocol CollectionRouting {
 class CollectionRouter: CollectionRouting {
 
     let navigationController: UINavigationController!
-    let artDetailsViewFactory: ArtDetailsViewFactory!
+    let artDetailsViewFactory: ArtDetailsViewFactoring!
 
-    init(navigationController: UINavigationController, artDetailsViewFactory: ArtDetailsViewFactory) {
+    init(navigationController: UINavigationController, artDetailsViewFactory: ArtDetailsViewFactoring) {
         self.navigationController = navigationController
         self.artDetailsViewFactory = artDetailsViewFactory
     }

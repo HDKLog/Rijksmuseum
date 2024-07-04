@@ -29,6 +29,7 @@
 		4E7AF8342C35288A008B79C8 /* CollectionRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AF8332C35288A008B79C8 /* CollectionRouterTest.swift */; };
 		4E7AF8362C353433008B79C8 /* CollectionViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AF8352C353433008B79C8 /* CollectionViewFactory.swift */; };
 		4E7AF8382C3534B1008B79C8 /* ArtDetailsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AF8372C3534B1008B79C8 /* ArtDetailsViewFactory.swift */; };
+		4E7AF83A2C354B59008B79C8 /* ArtDetailsRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AF8392C354B59008B79C8 /* ArtDetailsRouterTest.swift */; };
 		4EACC24D2A86C1C4002C4101 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EACC24C2A86C1C4002C4101 /* CollectionViewModel.swift */; };
 		4EACC2502A86CA65002C4101 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 4EACC24F2A86CA65002C4101 /* SkeletonView */; };
 		4EACC2522A86D056002C4101 /* CollectionViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EACC2512A86D056002C4101 /* CollectionViewFooter.swift */; };
@@ -81,6 +82,7 @@
 		4E7AF8332C35288A008B79C8 /* CollectionRouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRouterTest.swift; sourceTree = "<group>"; };
 		4E7AF8352C353433008B79C8 /* CollectionViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewFactory.swift; sourceTree = "<group>"; };
 		4E7AF8372C3534B1008B79C8 /* ArtDetailsViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDetailsViewFactory.swift; sourceTree = "<group>"; };
+		4E7AF8392C354B59008B79C8 /* ArtDetailsRouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDetailsRouterTest.swift; sourceTree = "<group>"; };
 		4EACC24C2A86C1C4002C4101 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		4EACC2512A86D056002C4101 /* CollectionViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewFooter.swift; sourceTree = "<group>"; };
 		4EACC2552A86DFD5002C4101 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				4E349D922A8A4B3D00D56CA7 /* ArtDetailsViewControllerTests.swift */,
 				4E349D9F2A8ABBEF00D56CA7 /* ArtDetailsPresenterTest.swift */,
 				4E349D9D2A8AA9D100D56CA7 /* ArtDetailsInteractorTest.swift */,
+				4E7AF8392C354B59008B79C8 /* ArtDetailsRouterTest.swift */,
 			);
 			path = RijksMuseumTests;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				4EFCB8B92A83739D00648D78 /* CollectionPresenterTest.swift in Sources */,
 				4E7AF8342C35288A008B79C8 /* CollectionRouterTest.swift in Sources */,
 				4EFCB8B32A835D9700648D78 /* CollectionViewControllerTest.swift in Sources */,
+				4E7AF83A2C354B59008B79C8 /* ArtDetailsRouterTest.swift in Sources */,
 				4E349D932A8A4B3D00D56CA7 /* ArtDetailsViewControllerTests.swift in Sources */,
 				4E349DA02A8ABBEF00D56CA7 /* ArtDetailsPresenterTest.swift in Sources */,
 				4EFCB8922A8346B700648D78 /* ProgrammingAssessmentTests.swift in Sources */,
