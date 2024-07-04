@@ -58,4 +58,18 @@ enum DesignBook {
             static let large: CGFloat = 30
         }
     }
+
+    enum Text {
+        private static let table: String = "DesignLocalizables"
+
+        enum ErrorAlert {
+            static var title: String { String(localized: "ERROR_ALERT_TITLE", table: Text.table) }
+
+            enum Action {
+                enum OK {
+                    static var title:  String { String(localized: "ERROR_ALERT_ACTION_OK_TITLE", table: Text.table) }
+                }
+            }
+        }
+    }
 }

@@ -26,7 +26,9 @@ class CollectionViewController: UIViewController, CollectionView {
 
     lazy var collectionView: UICollectionView = {
 
-        let width = min(view.frame.width, view.frame.height)
+        let minFrameWidth = min(view.frame.width, view.frame.height)
+        let minSpacesInRow: CGFloat = 3
+        let minItemsInRow: CGFloat = 2
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = DesignBook.Layout.Spacing.medium
@@ -35,11 +37,11 @@ class CollectionViewController: UIViewController, CollectionView {
                                            left: DesignBook.Layout.Spacing.medium,
                                            bottom: 0,
                                            right: DesignBook.Layout.Spacing.medium)
-        layout.itemSize = CGSize(width: (width - DesignBook.Layout.Spacing.medium * 3)/2,
+        layout.itemSize = CGSize(width: (minFrameWidth - DesignBook.Layout.Spacing.medium * minSpacesInRow)/minItemsInRow,
                                  height: DesignBook.Layout.Sizes.Image.medium)
-        layout.headerReferenceSize = CGSize(width: width,
+        layout.headerReferenceSize = CGSize(width: minFrameWidth,
                                             height: DesignBook.Layout.Sizes.Text.Header.medium)
-        layout.footerReferenceSize = CGSize(width: width,
+        layout.footerReferenceSize = CGSize(width: minFrameWidth,
                                             height: DesignBook.Layout.Sizes.Text.Header.medium)
         layout.estimatedItemSize = .zero
 
@@ -103,7 +105,7 @@ class CollectionViewController: UIViewController, CollectionView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)

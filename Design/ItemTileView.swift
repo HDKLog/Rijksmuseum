@@ -62,10 +62,10 @@ class ItemTileView: UIView {
     private func setupDescriptionLabelConstraints() {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
-            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
+            descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: DesignBook.Layout.Spacing.small),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: DesignBook.Layout.Spacing.small),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -DesignBook.Layout.Spacing.small),
+            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -DesignBook.Layout.Spacing.small)
         ])
     }
 
