@@ -6,6 +6,8 @@ class ItemTileView: UIView {
     struct Model: Hashable {
         let imageData: Data
         let title: String
+        var borderWidth: CGFloat = 1
+        var borderColor: DesignBookColor = DesignBook.Color.Background.light
     }
 
     let imageView: UIImageView = {
@@ -38,10 +40,7 @@ class ItemTileView: UIView {
     }
 
     private func setupContentViews() {
-
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.lightGray.cgColor
-
+        
         addSubview(imageView)
         setupImageViewConstraints()
 
@@ -80,9 +79,13 @@ class ItemTileView: UIView {
     }
 
     func configure(with model: Model?) {
-        self.hideSkeleton()
         imageView.image = model.flatMap { UIImage(data: $0.imageData) }
         descriptionLabel.text = model?.title
+
+        model.flatMap {
+            layer.borderWidth = $0.borderWidth
+            layer.borderColor = $0.borderColor.cgColor
+        }
         setAnimation(enabled: model == nil)
     }
 

@@ -9,6 +9,7 @@ enum DesignBook {
             static let main = DesignBookColor(name: "color-background-main")
             static let list = DesignBookColor(name: "color-background-list")
             static let inverse = DesignBookColor(name: "color-background-inverse")
+            static let light = DesignBookColor(name: "color-background-light")
         }
 
         enum Foreground {

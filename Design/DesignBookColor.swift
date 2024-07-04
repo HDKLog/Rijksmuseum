@@ -1,6 +1,6 @@
 import UIKit
 
-struct DesignBookColor {
+struct DesignBookColor: Hashable {
     private let name: String
 
     public init(name: String) {
@@ -8,4 +8,5 @@ struct DesignBookColor {
     }
 
     var uiColor: UIColor { UIColor(named: name)! }
+    var cgColor: CGColor { uiColor.cgColor }
 }
