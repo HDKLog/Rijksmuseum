@@ -1,6 +1,7 @@
 import UIKit
 import SkeletonView
 
+@MainActor
 protocol CollectionView {
     func configure(with model: CollectionViewModel)
     func updateCollection()

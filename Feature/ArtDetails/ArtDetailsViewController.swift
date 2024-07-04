@@ -1,6 +1,7 @@
 import UIKit
 import SkeletonView
 
+@MainActor
 protocol ArtDetailsView {
     func configure(with model: ArtDetailsViewModel.InitialInfo)
     func updateDetails(with model: ArtDetailsViewModel.ArtDetails)
@@ -58,46 +59,58 @@ class ArtDetailsViewController: UIViewController, ArtDetailsView {
     }
 
     private func setup() {
-        view.backgroundColor = DesignBook.Color.Background.main.uiColor
-        setupImageView()
-        setupScrollView()
+        setupViews()
+
         setupAnimation()
     }
 
-    private func setupImageView() {
-        view.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            imageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
-        ])
+    private func setupViews() {
+        view.backgroundColor = DesignBook.Color.Background.main.uiColor
+        setupScrollView()
+        setupContentView()
+        setupImageView()
+        setupInfoViews()
     }
+
 
     private func setupScrollView() {
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: imageView.bottomAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
 
+    private func setupContentView() {
         scrollView.addSubview(contentView)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: DesignBook.Layout.Spacing.small),
-            contentView.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: DesignBook.Layout.Spacing.small),
-            contentView.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -DesignBook.Layout.Spacing.small),
+            contentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: DesignBook.Layout.Spacing.medium),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -DesignBook.Layout.Spacing.medium),
             contentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -DesignBook.Layout.Spacing.small)
         ])
+    }
 
+    private func setupImageView() {
+        contentView.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 4/3)
+        ])
+    }
+
+    private func setupInfoViews() {
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: DesignBook.Layout.Spacing.small),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])

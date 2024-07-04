@@ -32,7 +32,8 @@ class CollectionInteractor: CollectionInteracting {
         gateway.loadCollection(page: page, count: count) { result in
             switch result {
             case let .success(info):
-                let collectionPage = CollectionPage(title: "Page \(page)", items: info.collectionItems)
+                let title = "Page \(page)"
+                let collectionPage = CollectionPage(title: title, items: info.collectionItems)
                 completion(.success(collectionPage))
             case let .failure(error):
                 completion(.failure(.loading(error: error)))

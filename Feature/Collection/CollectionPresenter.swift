@@ -1,5 +1,6 @@
 import Foundation
 
+@MainActor
 protocol CollectionPresenting {
     func loadCollection()
 
@@ -33,9 +34,9 @@ class CollectionPresenter: CollectionPresenting {
         view.configure(with: .loadingModel)
         interactor.loadCollection(page: currentPage, count: resultsOnPage) { [weak self] result in
             switch result {
-            case let .success(pageinfo):
+            case let .success(pageInfo):
                 self?.view.configure(with: .loadSuccessModel)
-                self?.updateNext(page: pageinfo)
+                self?.updateNext(page: pageInfo)
             case let .failure(error):
                 self?.view.configure(with: .loadFailModel)
                 self?.view.displayError(error: error)
@@ -83,8 +84,8 @@ class CollectionPresenter: CollectionPresenting {
     func loadNextPage() {
         interactor.loadCollection(page: currentPage, count: resultsOnPage) { [weak self] result in
             switch result {
-            case let .success(pageinfo):
-                self?.updateNext(page: pageinfo)
+            case let .success(pageInfo):
+                self?.updateNext(page: pageInfo)
             case let .failure(error):
                 self?.view.displayError(error: error)
                 self?.loadNextPage()

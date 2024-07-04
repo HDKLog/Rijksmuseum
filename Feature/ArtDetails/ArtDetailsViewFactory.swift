@@ -1,5 +1,6 @@
 import UIKit
 
+@MainActor
 protocol ArtDetailsViewFactoring {
     func createArtDetailsView(for artId: String) -> UIViewController
 }

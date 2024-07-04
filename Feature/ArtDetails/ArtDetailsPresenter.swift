@@ -1,5 +1,6 @@
 import Foundation
 
+@MainActor
 protocol ArtDetailsPresenting {
     func loadView()
     func loadArt()
