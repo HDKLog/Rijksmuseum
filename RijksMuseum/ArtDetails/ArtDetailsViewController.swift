@@ -161,8 +161,8 @@ class ArtDetailsViewController: UIViewController, ArtDetailsView {
 extension ArtDetailsViewController: CollectionRoutingEndpoint {
     var collectionView: UIViewController { self }
 
-    func loadArtDetail(ardId: String) {
-        presenter?.loadArt(artId: ardId)
+    func loadArtDetail(artId: String) {
+        presenter?.loadArt(artId: artId)
     }
 
 

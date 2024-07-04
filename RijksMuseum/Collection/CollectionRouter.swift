@@ -1,11 +1,11 @@
 import UIKit
 
 protocol CollectionRouting {
-    func routeToArtDetail(ardId: String)
+    func routeToArtDetail(artId: String)
 }
 
 protocol CollectionRoutingEndpoint {
-    func loadArtDetail(ardId: String)
+    func loadArtDetail(artId: String)
 }
 
 class CollectionRouter: CollectionRouting {
@@ -20,9 +20,9 @@ class CollectionRouter: CollectionRouting {
         self.endpoint = endpoint
     }
 
-    func routeToArtDetail(ardId: String) {
+    func routeToArtDetail(artId: String) {
         rootView.navigationController?.pushViewController(endView, animated: true)
-        endpoint.loadArtDetail(ardId: ardId)
+        endpoint.loadArtDetail(artId: artId)
     }
 
 }

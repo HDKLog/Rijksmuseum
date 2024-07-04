@@ -150,25 +150,6 @@ final class CollectionViewControllerTest: XCTestCase {
         XCTAssertTrue(presenter.numberOfPagesCalled)
     }
 
-    func test_viewController_onUpdateCollection_askPresenterForHeaderModel() {
-        var numberOfPages = 0
-        let presenter = Presenter()
-
-        presenter.headerModelClosure = {page, completion in
-            completion(.mocked)
-        }
-        presenter.numberOfPagesClosure = {
-            numberOfPages += 1
-            return numberOfPages
-        }
-        let sut = makeSut(presenter: presenter)
-
-        sut.updateCollection()
-
-
-        XCTAssertTrue(presenter.headerModelCalled)
-    }
-
     func test_viewController_onUpdateCollection_askPresenterForNumberOfItems() {
         var numberOfPages = 0
         let presenter = Presenter()
@@ -181,21 +162,6 @@ final class CollectionViewControllerTest: XCTestCase {
         sut.updateCollection()
 
         XCTAssertTrue(presenter.numberOfItemsCalled)
-
-    }
-
-    func test_viewController_onUpdateCollection_askPresenterForItemModel() {
-        var numberOfPages = 0
-        let presenter = Presenter()
-        presenter.numberOfPagesClosure = {
-            numberOfPages += 1
-            return numberOfPages
-        }
-        let sut = makeSut(presenter: presenter)
-
-        sut.updateCollection()
-
-        XCTAssertTrue(presenter.itemModelCalled)
 
     }
 

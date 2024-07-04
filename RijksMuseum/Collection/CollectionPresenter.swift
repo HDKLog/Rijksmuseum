@@ -77,7 +77,7 @@ class CollectionPresenter: CollectionPresenting {
 
     func chooseItem(itemIndex: Int, on page: Int) {
         let item = collectionPages[page].items[itemIndex]
-        router?.routeToArtDetail(ardId: item.id)
+        router?.routeToArtDetail(artId: item.id)
     }
 
     func loadNextPage() {

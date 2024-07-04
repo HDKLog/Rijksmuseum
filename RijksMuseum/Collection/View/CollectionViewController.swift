@@ -172,14 +172,9 @@ extension CollectionViewController: UICollectionViewDataSource {
                     self.loadingGroup.leave()
                     self.cachedItemsModels[indexPath] = model
                     self.loadingIndexPaths.remove(indexPath)
-
-                    if let configurableCell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell {
-                        configurableCell.configure(with: model)
-                    }
-
+                    collectionCell.configure(with: model)
                 }
             }
-
         }
         return cell
     }
