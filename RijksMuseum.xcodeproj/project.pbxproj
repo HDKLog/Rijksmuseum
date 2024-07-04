@@ -43,7 +43,6 @@
 		4EFCB87F2A8346B600648D78 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFCB87E2A8346B600648D78 /* CollectionViewController.swift */; };
 		4EFCB8842A8346B700648D78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EFCB8832A8346B700648D78 /* Assets.xcassets */; };
 		4EFCB8872A8346B700648D78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EFCB8852A8346B700648D78 /* LaunchScreen.storyboard */; };
-		4EFCB8922A8346B700648D78 /* ProgrammingAssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFCB8912A8346B700648D78 /* ProgrammingAssessmentTests.swift */; };
 		4EFCB8AB2A834E6400648D78 /* CollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFCB8AA2A834E6400648D78 /* CollectionPresenter.swift */; };
 		4EFCB8AD2A834F2600648D78 /* CollectionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFCB8AC2A834F2600648D78 /* CollectionRouter.swift */; };
 		4EFCB8AF2A8351A100648D78 /* CollectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFCB8AE2A8351A100648D78 /* CollectionInteractor.swift */; };
@@ -101,7 +100,6 @@
 		4EFCB8862A8346B700648D78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EFCB8882A8346B700648D78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RijksMuseum/Info.plist; sourceTree = "<group>"; };
 		4EFCB88D2A8346B700648D78 /* RijksMuseumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RijksMuseumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4EFCB8912A8346B700648D78 /* ProgrammingAssessmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammingAssessmentTests.swift; sourceTree = "<group>"; };
 		4EFCB8AA2A834E6400648D78 /* CollectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPresenter.swift; sourceTree = "<group>"; };
 		4EFCB8AC2A834F2600648D78 /* CollectionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRouter.swift; sourceTree = "<group>"; };
 		4EFCB8AE2A8351A100648D78 /* CollectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionInteractor.swift; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 		4EFCB8902A8346B700648D78 /* RijksMuseumTests */ = {
 			isa = PBXGroup;
 			children = (
-				4EFCB8912A8346B700648D78 /* ProgrammingAssessmentTests.swift */,
 				4EFCB8B22A835D9700648D78 /* CollectionViewControllerTest.swift */,
 				4EFCB8B82A83739D00648D78 /* CollectionPresenterTest.swift */,
 				4E349D902A8A1F7600D56CA7 /* CollectionInteractorTest.swift */,
@@ -437,7 +434,6 @@
 				4E7AF83A2C354B59008B79C8 /* ArtDetailsRouterTest.swift in Sources */,
 				4E349D932A8A4B3D00D56CA7 /* ArtDetailsViewControllerTests.swift in Sources */,
 				4E349DA02A8ABBEF00D56CA7 /* ArtDetailsPresenterTest.swift in Sources */,
-				4EFCB8922A8346B700648D78 /* ProgrammingAssessmentTests.swift in Sources */,
 				4E349D9E2A8AA9D100D56CA7 /* ArtDetailsInteractorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,7 +640,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J92UPG9528;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.some.RijksMuseumTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -664,7 +660,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J92UPG9528;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.some.RijksMuseumTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
