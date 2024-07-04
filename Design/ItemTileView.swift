@@ -54,8 +54,7 @@ class ItemTileView: UIView {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 200),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 
