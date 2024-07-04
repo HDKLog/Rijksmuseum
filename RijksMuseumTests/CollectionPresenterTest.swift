@@ -333,7 +333,7 @@ final class CollectionPresenterTest: XCTestCase {
             loadedModel = model
         }
 
-        XCTAssertEqual(loadedModel, CollectionViewCellModel(imageData: Data(), title: mockedResult.items[0].title))
+        XCTAssertEqual(loadedModel, CollectionViewCellModel(tileModel:.init(imageData: Data(), title: mockedResult.items[0].title)))
     }
 
     func test_collectionPresenter_onItemModel_onFailureTellsViewToDisplayError() {
@@ -462,7 +462,7 @@ extension CollectionPage {
 
 extension CollectionViewCellModel: Equatable {
     public static func == (lhs: CollectionViewCellModel, rhs: CollectionViewCellModel) -> Bool {
-        lhs.title == rhs.title && lhs.imageData == rhs.imageData
+        lhs.tileModel == rhs.tileModel
     }
 }
 

@@ -19,7 +19,7 @@ class CollectionViewController: UIViewController, CollectionView {
 
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = DesignBook.Color.Foreground.light.uiColor()
+        label.textColor = DesignBook.Color.Foreground.light.uiColor
         label.font = UIFont.systemFont(ofSize: DesignBook.Layout.Sizes.Text.Font.large)
         return label
     }()
@@ -47,7 +47,7 @@ class CollectionViewController: UIViewController, CollectionView {
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.reusableId)
         collectionView.register(CollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionViewHeader.reusableId)
         collectionView.register(CollectionViewFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CollectionViewFooter.reusableId)
-        collectionView.backgroundColor = DesignBook.Color.Background.list.uiColor()
+        collectionView.backgroundColor = DesignBook.Color.Background.list.uiColor
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -70,7 +70,7 @@ class CollectionViewController: UIViewController, CollectionView {
     
     let initialViewLabel: UILabel = {
         let label = UILabel()
-        label.textColor = DesignBook.Color.Foreground.light.uiColor()
+        label.textColor = DesignBook.Color.Foreground.light.uiColor
         label.font = UIFont.systemFont(ofSize: DesignBook.Layout.Sizes.Text.Font.large)
         return label
     }()
@@ -88,7 +88,7 @@ class CollectionViewController: UIViewController, CollectionView {
     }
 
     private func setup() {
-        view.backgroundColor = DesignBook.Color.Background.main.uiColor()
+        view.backgroundColor = DesignBook.Color.Background.main.uiColor
         setupTitle()
         setupCollectionView()
         setupInitialView()
@@ -135,8 +135,7 @@ class CollectionViewController: UIViewController, CollectionView {
     }
 
     func displayError(error: Error) {
-        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+        let alert = ErrorAlertView(error: error)
         self.present(alert, animated: true, completion: nil)
     }
 

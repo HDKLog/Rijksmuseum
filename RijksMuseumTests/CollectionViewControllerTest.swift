@@ -213,7 +213,7 @@ final class CollectionViewControllerTest: XCTestCase {
         sut.updateCollection()
         let cell = sut.collectionView.dataSource?.collectionView(sut.collectionView, cellForItemAt: indexPath) as? CollectionViewCell
 
-        XCTAssertNotNil( cell?.imageView.image)
+        XCTAssertNotNil( cell?.itemTileView.imageView.image)
     }
 
     func test_viewController_onLoadCell_setDescription() {
@@ -232,7 +232,7 @@ final class CollectionViewControllerTest: XCTestCase {
         sut.updateCollection()
         let cell = sut.collectionView.dataSource?.collectionView(sut.collectionView, cellForItemAt: indexPath) as? CollectionViewCell
 
-        XCTAssertEqual( cell?.descriptionLabel.text, CollectionViewCellModel.mocked.title)
+        XCTAssertEqual( cell?.itemTileView.descriptionLabel.text, CollectionViewCellModel.mocked.tileModel.title)
     }
 
     func test_viewController_onLoadHeader_setHeaderTitle() {
@@ -316,7 +316,7 @@ final class CollectionViewControllerTest: XCTestCase {
 
 extension CollectionViewCellModel {
     static var mocked: CollectionViewCellModel {
-        CollectionViewCellModel(imageData: UIImage.init(systemName: "heart.fill")!.pngData()!, title: "Title")
+        CollectionViewCellModel(tileModel: .init(imageData: UIImage.init(systemName: "heart.fill")!.pngData()!, title: "Title"))
     }
 }
 

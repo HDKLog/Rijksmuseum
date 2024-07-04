@@ -1,9 +1,12 @@
 import UIKit
 import SkeletonView
 
-class CollectionViewCell: UICollectionViewCell {
 
-    static let reusableId = "CollectionViewCell"
+class ItemTileView: UIView {
+    struct Model: Hashable {
+        let imageData: Data
+        let title: String
+    }
 
     let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -17,7 +20,7 @@ class CollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.textColor = DesignBook.Color.Foreground.inverse.uiColor()
+        label.textColor = DesignBook.Color.Foreground.inverse.uiColor
         label.font = UIFont.systemFont(ofSize: DesignBook.Layout.Sizes.Text.Font.small)
         return label
     }()
@@ -29,18 +32,20 @@ class CollectionViewCell: UICollectionViewCell {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setupContentViews()
+        setupSkeletonAnimation()
     }
 
     private func setupContentViews() {
 
-        contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.lightGray.cgColor
 
-        self.contentView.addSubview(imageView)
+        addSubview(imageView)
         setupImageViewConstraints()
 
-        self.contentView.addSubview(descriptionLabel)
+        addSubview(descriptionLabel)
         setupDescriptionLabelConstraints()
 
     }
@@ -48,9 +53,9 @@ class CollectionViewCell: UICollectionViewCell {
     private func setupImageViewConstraints() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 200),
         ])
     }
@@ -59,17 +64,14 @@ class CollectionViewCell: UICollectionViewCell {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
-            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
         ])
     }
 
     private func setupSkeletonAnimation() {
-
         isSkeletonable = true
-
-        contentView.isSkeletonable = true
 
         imageView.isSkeletonable = true
 
@@ -77,16 +79,18 @@ class CollectionViewCell: UICollectionViewCell {
         descriptionLabel.skeletonTextNumberOfLines = .custom(1)
     }
 
-
-    func configure(with model: CollectionViewCellModel) {
-        contentView.hideSkeleton()
-        imageView.image = UIImage(data: model.imageData)
-        descriptionLabel.text = model.title
+    func configure(with model: Model?) {
+        self.hideSkeleton()
+        imageView.image = model.flatMap { UIImage(data: $0.imageData) }
+        descriptionLabel.text = model?.title
+        setAnimation(enabled: model == nil)
     }
 
-    func reset() {
-        contentView.showAnimatedGradientSkeleton()
-        imageView.image = nil
-        descriptionLabel.text = nil
+    private func setAnimation(enabled: Bool) {
+        if enabled {
+            showAnimatedGradientSkeleton()
+        } else {
+            hideSkeleton()
+        }
     }
 }

@@ -58,7 +58,7 @@ class ArtDetailsViewController: UIViewController, ArtDetailsView {
     }
 
     private func setup() {
-        view.backgroundColor = DesignBook.Color.Background.main.uiColor()
+        view.backgroundColor = DesignBook.Color.Background.main.uiColor
         setupImageView()
         setupScrollView()
         setupAnimation()
@@ -148,8 +148,7 @@ class ArtDetailsViewController: UIViewController, ArtDetailsView {
     }
 
     func displayError(error: Error) {
-        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+        let alert = ErrorAlertView(error: error)
         self.present(alert, animated: true, completion: nil)
     }
 

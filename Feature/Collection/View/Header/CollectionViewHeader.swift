@@ -5,7 +5,7 @@ class CollectionViewHeader: UICollectionReusableView {
 
     lazy var textLabel : UILabel = {
         let label = UILabel()
-        label.textColor = DesignBook.Color.Foreground.light.uiColor()
+        label.textColor = DesignBook.Color.Foreground.light.uiColor
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.translatesAutoresizingMaskIntoConstraints = false

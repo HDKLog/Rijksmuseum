@@ -1,6 +1,5 @@
 import Foundation
 
 struct CollectionViewCellModel {
-    let imageData: Data
-    let title: String
+    let tileModel: ItemTileView.Model
 }

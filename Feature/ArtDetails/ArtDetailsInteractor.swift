@@ -1,10 +1,3 @@
-//
-//  ArtInteractor.swift
-//  RijksMuseum
-//
-//  Created by Gari Sarkisyan on 13.08.23.
-//
-
 import Foundation
 
 enum ArtDetailsError: Error {

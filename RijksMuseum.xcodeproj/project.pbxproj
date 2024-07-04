@@ -30,6 +30,9 @@
 		4E7AF8362C353433008B79C8 /* CollectionViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AF8352C353433008B79C8 /* CollectionViewFactory.swift */; };
 		4E7AF8382C3534B1008B79C8 /* ArtDetailsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AF8372C3534B1008B79C8 /* ArtDetailsViewFactory.swift */; };
 		4E7AF83A2C354B59008B79C8 /* ArtDetailsRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AF8392C354B59008B79C8 /* ArtDetailsRouterTest.swift */; };
+		4E7AF83C2C355CCB008B79C8 /* DesignBookColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AF83B2C355CCB008B79C8 /* DesignBookColor.swift */; };
+		4E7AF8402C356523008B79C8 /* ErrorAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AF83F2C356523008B79C8 /* ErrorAlertView.swift */; };
+		4E7AF8442C357CE9008B79C8 /* ItemTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AF8432C357CE9008B79C8 /* ItemTileView.swift */; };
 		4EACC24D2A86C1C4002C4101 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EACC24C2A86C1C4002C4101 /* CollectionViewModel.swift */; };
 		4EACC2502A86CA65002C4101 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 4EACC24F2A86CA65002C4101 /* SkeletonView */; };
 		4EACC2522A86D056002C4101 /* CollectionViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EACC2512A86D056002C4101 /* CollectionViewFooter.swift */; };
@@ -78,11 +81,14 @@
 		4E4CCACD2A83F60D00A201C5 /* CollectionViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellModel.swift; sourceTree = "<group>"; };
 		4E4CCACF2A83FE6100A201C5 /* CollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHeader.swift; sourceTree = "<group>"; };
 		4E4CCAD12A84002600A201C5 /* CollectionViewHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHeaderModel.swift; sourceTree = "<group>"; };
-		4E4CCAD92A841C0000A201C5 /* DesignBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DesignBook.swift; path = RijksMuseum/DesignBook.swift; sourceTree = "<group>"; };
+		4E4CCAD92A841C0000A201C5 /* DesignBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignBook.swift; sourceTree = "<group>"; };
 		4E7AF8332C35288A008B79C8 /* CollectionRouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRouterTest.swift; sourceTree = "<group>"; };
 		4E7AF8352C353433008B79C8 /* CollectionViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewFactory.swift; sourceTree = "<group>"; };
 		4E7AF8372C3534B1008B79C8 /* ArtDetailsViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDetailsViewFactory.swift; sourceTree = "<group>"; };
 		4E7AF8392C354B59008B79C8 /* ArtDetailsRouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDetailsRouterTest.swift; sourceTree = "<group>"; };
+		4E7AF83B2C355CCB008B79C8 /* DesignBookColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignBookColor.swift; sourceTree = "<group>"; };
+		4E7AF83F2C356523008B79C8 /* ErrorAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertView.swift; sourceTree = "<group>"; };
+		4E7AF8432C357CE9008B79C8 /* ItemTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTileView.swift; sourceTree = "<group>"; };
 		4EACC24C2A86C1C4002C4101 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		4EACC2512A86D056002C4101 /* CollectionViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewFooter.swift; sourceTree = "<group>"; };
 		4EACC2552A86DFD5002C4101 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -133,8 +139,7 @@
 				4EFCB8AC2A834F2600648D78 /* CollectionRouter.swift */,
 				4E7AF8352C353433008B79C8 /* CollectionViewFactory.swift */,
 			);
-			name = Collection;
-			path = RijksMuseum/Collection;
+			path = Collection;
 			sourceTree = "<group>";
 		};
 		4E349D812A8933F100D56CA7 /* ArtDetails */ = {
@@ -148,8 +153,7 @@
 				4E349D882A893B6B00D56CA7 /* ArtDetailsRouter.swift */,
 				4E7AF8372C3534B1008B79C8 /* ArtDetailsViewFactory.swift */,
 			);
-			name = ArtDetails;
-			path = RijksMuseum/ArtDetails;
+			path = ArtDetails;
 			sourceTree = "<group>";
 		};
 		4E4CCAD42A840CD900A201C5 /* View */ = {
@@ -180,6 +184,26 @@
 				4E4CCAD12A84002600A201C5 /* CollectionViewHeaderModel.swift */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		4E7AF8412C356DE8008B79C8 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				4E4CCAD92A841C0000A201C5 /* DesignBook.swift */,
+				4E7AF83B2C355CCB008B79C8 /* DesignBookColor.swift */,
+				4E7AF83F2C356523008B79C8 /* ErrorAlertView.swift */,
+				4E7AF8432C357CE9008B79C8 /* ItemTileView.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		4E7AF8422C356E1B008B79C8 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				4E349D802A891E3E00D56CA7 /* Collection */,
+				4E349D812A8933F100D56CA7 /* ArtDetails */,
+			);
+			path = Feature;
 			sourceTree = "<group>";
 		};
 		4EACC2532A86D078002C4101 /* Footer */ = {
@@ -235,14 +259,13 @@
 			isa = PBXGroup;
 			children = (
 				4EACC2542A86DFBA002C4101 /* Service */,
+				4EBF0C432AA0A0D200A16A90 /* Gateway */,
 				4EFCB87A2A8346B600648D78 /* AppDelegate.swift */,
-				4E4CCAD92A841C0000A201C5 /* DesignBook.swift */,
-				4E349D802A891E3E00D56CA7 /* Collection */,
+				4E7AF8412C356DE8008B79C8 /* Design */,
+				4E7AF8422C356E1B008B79C8 /* Feature */,
 				4EFCB8832A8346B700648D78 /* Assets.xcassets */,
-				4E349D812A8933F100D56CA7 /* ArtDetails */,
 				4EFCB8852A8346B700648D78 /* LaunchScreen.storyboard */,
 				4EFCB8882A8346B700648D78 /* Info.plist */,
-				4EBF0C432AA0A0D200A16A90 /* Gateway */,
 			);
 			name = RijksMuseum;
 			sourceTree = "<group>";
@@ -380,6 +403,7 @@
 				4E4CCACE2A83F60D00A201C5 /* CollectionViewCellModel.swift in Sources */,
 				4E4CCADA2A841C0000A201C5 /* DesignBook.swift in Sources */,
 				4E349D852A893A6400D56CA7 /* ArtDetailsPresenter.swift in Sources */,
+				4E7AF8442C357CE9008B79C8 /* ItemTileView.swift in Sources */,
 				4E349D982A8A8AAB00D56CA7 /* ArtDetailsInfo.swift in Sources */,
 				4E4CCACC2A83F29100A201C5 /* CollectionViewCell.swift in Sources */,
 				4EACC2582A86E022002C4101 /* CollectionInfo.swift in Sources */,
@@ -393,7 +417,9 @@
 				4EACC2562A86DFD5002C4101 /* Service.swift in Sources */,
 				4EFCB8AB2A834E6400648D78 /* CollectionPresenter.swift in Sources */,
 				4E349D832A8939E500D56CA7 /* ArtDetailsViewController.swift in Sources */,
+				4E7AF83C2C355CCB008B79C8 /* DesignBookColor.swift in Sources */,
 				4E349D8B2A8A013300D56CA7 /* ServiceQuery.swift in Sources */,
+				4E7AF8402C356523008B79C8 /* ErrorAlertView.swift in Sources */,
 				4E349D8F2A8A110D00D56CA7 /* RijksmuseumImageQuery.swift in Sources */,
 				4EFCB8AF2A8351A100648D78 /* CollectionInteractor.swift in Sources */,
 				4E349D892A893B6B00D56CA7 /* ArtDetailsRouter.swift in Sources */,

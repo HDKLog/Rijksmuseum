@@ -56,14 +56,14 @@ class CollectionPresenter: CollectionPresenting {
         let item = collectionPages[page].items[index]
         guard let url = item.webImage?.url
         else {
-            completion(CollectionViewCellModel(imageData: Data(), title: item.title))
+            completion(CollectionViewCellModel(tileModel: .init(imageData: Data(), title: item.title)))
             return
         }
         
         interactor.loadCollectionItemImageData(from: url) {[weak self] result in
             switch result {
             case let .success(data):
-                completion(CollectionViewCellModel(imageData: data, title: item.title))
+                completion(CollectionViewCellModel(tileModel: .init(imageData: data, title: item.title)))
             case let .failure(error):
                 self?.view.displayError(error: error)
                 self?.itemModel(on: page, at: index, completion: completion)
