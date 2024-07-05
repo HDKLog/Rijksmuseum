@@ -1,10 +1,3 @@
-//
-//  RijksmuseumServiceJsonQuery.swift
-//  RijksMuseum
-//
-//  Created by Gari Sarkisyan on 14.08.23.
-//
-
 import Foundation
 
 class RijksmuseumServiceQuery: ServiceQuery {

@@ -61,19 +61,14 @@ class RijksmuseumArtGateway: ArtGateway {
             case let .success(data):
                 do {
                     let collectionInfo = try JSONDecoder().decode(CollectionInfo.self, from: data)
-                    DispatchQueue.main.async {
-                        completion(.success( collectionInfo ))
-                    }
+                    completion(.success( collectionInfo ))
                 } catch {
-                    DispatchQueue.main.async {
-                        completion(.failure(.parsingError(error)))
-                    }
+                    completion(.failure(.parsingError(error)))
                 }
 
             case let .failure(error):
-                DispatchQueue.main.async {
-                    completion(.failure(.serviceError(error)))
-                }
+                completion(.failure(.serviceError(error)))
+
             }
         }
     }
@@ -97,19 +92,13 @@ class RijksmuseumArtGateway: ArtGateway {
             case let .success(data):
                 do {
                     let info = try JSONDecoder().decode(ArtDetailsInfo.self, from: data)
-                    DispatchQueue.main.async {
-                        completion(.success( info ))
-                    }
+                    completion(.success( info ))
                 } catch {
-                    DispatchQueue.main.async {
-                        completion(.failure(.parsingError(error)))
-                    }
+                    completion(.failure(.parsingError(error)))
                 }
                 break
             case let .failure(error):
-                DispatchQueue.main.async {
-                    completion(.failure(.serviceError(error)))
-                }
+                completion(.failure(.serviceError(error)))
             }
         }
     }

@@ -29,23 +29,27 @@ class ArtDetailsInteractor: ArtDetailsInteracting {
 
     func loadArtDetails(artId: String, completion: @escaping ArtDetailsResultHandler) {
         gateway.loadArtDetails(artId: artId) { result in
-            switch result {
-            case let .success(info):
-                let details = info.artDetails
-                completion(.success(details))
-            case let .failure(error):
-                completion(.failure(.loading(error: error)))
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(info):
+                    let details = info.artDetails
+                    completion(.success(details))
+                case let .failure(error):
+                    completion(.failure(.loading(error: error)))
+                }
             }
         }
     }
 
     func loadArtDetailsImageData(from url: URL, completion: @escaping ArtDetailsImageResultHandler) {
         gateway.loadArtDetailsImageData(from: url) { result in
-            switch result {
-            case let .success(data):
-                completion(.success(data))
-            case let .failure(error):
-                completion(.failure(.loading(error: error)))
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(data):
+                    completion(.success(data))
+                case let .failure(error):
+                    completion(.failure(.loading(error: error)))
+                }
             }
         }
     }

@@ -30,24 +30,28 @@ class CollectionInteractor: CollectionInteracting {
     func loadCollection(page: Int, count: Int, completion: @escaping CollectionResultHandler) {
 
         gateway.loadCollection(page: page, count: count) { result in
-            switch result {
-            case let .success(info):
-                let title = "Page \(page)"
-                let collectionPage = CollectionPage(title: title, items: info.collectionItems)
-                completion(.success(collectionPage))
-            case let .failure(error):
-                completion(.failure(.loading(error: error)))
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(info):
+                    let title = "Page \(page)"
+                    let collectionPage = CollectionPage(title: title, items: info.collectionItems)
+                    completion(.success(collectionPage))
+                case let .failure(error):
+                    completion(.failure(.loading(error: error)))
+                }
             }
         }
     }
 
     func loadCollectionItemImageData(from url: URL, completion: @escaping CollectionImageDataResultHandler) {
         gateway.loadCollectionImageData(from: url) { result in
-            switch result {
-            case let .success(data):
-                completion(.success(data))
-            case let .failure(error):
-                completion(.failure(.loading(error: error)))
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(data):
+                    completion(.success(data))
+                case let .failure(error):
+                    completion(.failure(.loading(error: error)))
+                }
             }
         }
     }

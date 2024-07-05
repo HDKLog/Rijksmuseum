@@ -102,7 +102,7 @@ class ArtDetailsViewController: UIViewController, ArtDetailsView {
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 4/3)
+            imageView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 4/3)
         ])
     }
 
@@ -110,7 +110,7 @@ class ArtDetailsViewController: UIViewController, ArtDetailsView {
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: DesignBook.Layout.Spacing.small),
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: DesignBook.Layout.Spacing.large),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
