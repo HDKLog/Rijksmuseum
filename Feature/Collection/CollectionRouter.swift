@@ -1,6 +1,5 @@
 import UIKit
 
-@MainActor
 protocol CollectionRouting {
     func routeToArtDetail(artId: String)
 }

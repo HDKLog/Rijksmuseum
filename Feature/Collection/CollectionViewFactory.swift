@@ -1,6 +1,6 @@
 import UIKit
 
-@MainActor
+
 protocol CollectionViewFactoring {
     func createCollectionView() -> UIViewController
 }

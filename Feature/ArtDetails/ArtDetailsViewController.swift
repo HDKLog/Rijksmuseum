@@ -1,7 +1,6 @@
 import UIKit
 import SkeletonView
 
-@MainActor
 protocol ArtDetailsView {
     func configure(with model: ArtDetailsViewModel.InitialInfo)
     func updateDetails(with model: ArtDetailsViewModel.ArtDetails)

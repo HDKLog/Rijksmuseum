@@ -1,6 +1,5 @@
 import Foundation
 
-@MainActor
 protocol CollectionPresenting {
     func loadCollection()
 
