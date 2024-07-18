@@ -6,8 +6,8 @@ protocol CollectionRouting {
 
 class CollectionRouter: CollectionRouting {
 
-    let navigationController: UINavigationController!
-    let artDetailsViewFactory: ArtDetailsViewFactoring!
+    weak var navigationController: UINavigationController?
+    let artDetailsViewFactory: ArtDetailsViewFactoring
 
     init(navigationController: UINavigationController, artDetailsViewFactory: ArtDetailsViewFactoring) {
         self.navigationController = navigationController
@@ -16,7 +16,7 @@ class CollectionRouter: CollectionRouting {
 
     func routeToArtDetail(artId: String) {
         let artDetailsView = artDetailsViewFactory.createArtDetailsView(for: artId)
-        navigationController.pushViewController(artDetailsView, animated: true)
+        navigationController?.pushViewController(artDetailsView, animated: true)
     }
 
 }

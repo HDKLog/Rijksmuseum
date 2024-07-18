@@ -234,7 +234,7 @@ class ArtDetailsPresenterTest: XCTestCase {
     func test_artDetailsPresenter_onLoadArt_loadArtDetailsSuccessWithLoadsImageSuccessUpdateViewImage() {
 
         let artDetails = ArtDetails.mocked
-        let imageData = UIImage.init(systemName: "heart.fill")!.pngData()!
+        let imageData = UIImage(named: "AppIcon")!.pngData()!
         var loadedImageData: Data?
         let view = View()
         let interactor = Interactor()

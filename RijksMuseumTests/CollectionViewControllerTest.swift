@@ -7,10 +7,10 @@ final class CollectionViewControllerTest: XCTestCase {
 
         var chooseItemCalled: Bool { chooseItemCalls > 0 }
         var chooseItemCalls: Int = 0
-        var chooseItemClosure: (Int, Int) -> Void = {_, _ in  }
-        func chooseItem(itemIndex: Int, on page: Int) {
+        var chooseItemClosure: (IndexPath) -> Void = {_ in  }
+        func chooseItem(at indexPath: IndexPath) {
             chooseItemCalls += 1
-            chooseItemClosure(itemIndex, page)
+            chooseItemClosure(indexPath)
         }
 
 
@@ -41,10 +41,10 @@ final class CollectionViewControllerTest: XCTestCase {
 
         var itemModelCalled: Bool { itemModelCalls > 0 }
         var itemModelCalls: Int = 0
-        var itemModelClosure: (Int, Int, @escaping (CollectionViewCellModel) ->Void) -> Void = { _, _, _ in }
-        func itemModel(on page: Int, at index:Int, completion: @escaping (CollectionViewCellModel) ->Void) {
+        var itemModelClosure: (IndexPath, @escaping (CollectionViewCellModel) ->Void) -> Void = { _, _ in }
+        func itemModel(at indexPath: IndexPath, completion: @escaping (RijksMuseum.CollectionViewCellModel) -> Void) {
             itemModelCalls += 1
-            itemModelClosure(page, index, completion)
+            itemModelClosure(indexPath, completion)
         }
 
         var headerModelCalled: Bool { headerModelCalls > 0 }
@@ -182,17 +182,17 @@ final class CollectionViewControllerTest: XCTestCase {
 
     func test_viewController_onMultipleCellLoading_doNotLoadCellModelTwice() {
         var callsForIndexPath: Int = 0
-        let indexPath = IndexPath(row: 0, section: 0)
+        let currentIndexPath = IndexPath(row: 0, section: 0)
         let presenter = Presenter()
-        presenter.itemModelClosure = {page, item, _ in
-            if indexPath.section == page && indexPath.row == item {
+        presenter.itemModelClosure = {indexPath, _ in
+            if indexPath == currentIndexPath {
                 callsForIndexPath += 1
             }
         }
         let sut = makeSut(presenter: presenter)
 
-        _ = sut.collectionView.dataSource?.collectionView(sut.collectionView, cellForItemAt: indexPath)
-        _ = sut.collectionView.dataSource?.collectionView(sut.collectionView, cellForItemAt: indexPath)
+        _ = sut.collectionView.dataSource?.collectionView(sut.collectionView, cellForItemAt: currentIndexPath)
+        _ = sut.collectionView.dataSource?.collectionView(sut.collectionView, cellForItemAt: currentIndexPath)
 
         XCTAssertEqual(callsForIndexPath, 1)
     }
@@ -201,7 +201,7 @@ final class CollectionViewControllerTest: XCTestCase {
         var numberOfPages = 0
         let indexPath = IndexPath(row: 0, section: 0)
         let presenter = Presenter()
-        presenter.itemModelClosure = {page, item, completion in
+        presenter.itemModelClosure = {_, completion in
             completion(.mocked)
         }
         presenter.numberOfPagesClosure = {
@@ -220,7 +220,7 @@ final class CollectionViewControllerTest: XCTestCase {
         var numberOfPages = 0
         let indexPath = IndexPath(row: 0, section: 0)
         let presenter = Presenter()
-        presenter.itemModelClosure = {page, item, completion in
+        presenter.itemModelClosure = {_, completion in
             completion(.mocked)
         }
         presenter.numberOfPagesClosure = {
@@ -256,7 +256,7 @@ final class CollectionViewControllerTest: XCTestCase {
 
     func test_viewController_onDisplayLastCell_tellPresenterToLoadNextPage() {
         let presenter = Presenter()
-        presenter.itemModelClosure = {_, _, completion in
+        presenter.itemModelClosure = {_, completion in
             completion(.mocked)
         }
         let expectation = XCTestExpectation(description: "\(#file) \(#function) \(#line)")
@@ -284,7 +284,7 @@ final class CollectionViewControllerTest: XCTestCase {
 
     func test_viewController_onMultipleDisplayLastCell_afterLoadtellPresenterToLoadNextPageOnce() {
         let presenter = Presenter()
-        presenter.itemModelClosure = {_, _, completion in
+        presenter.itemModelClosure = {_, completion in
             completion(.mocked)
         }
         let expectation = XCTestExpectation(description: "\(#file) \(#function) \(#line)")
@@ -302,7 +302,7 @@ final class CollectionViewControllerTest: XCTestCase {
 
     func test_viewController_onSelectCell_tellPresenterToChooseCell() {
         let presenter = Presenter()
-        presenter.itemModelClosure = {_, _, completion in
+        presenter.itemModelClosure = {_, completion in
             completion(.mocked)
         }
         let sut = makeSut(presenter: presenter)
@@ -316,7 +316,7 @@ final class CollectionViewControllerTest: XCTestCase {
 
 extension CollectionViewCellModel {
     static var mocked: CollectionViewCellModel {
-        CollectionViewCellModel(tileModel: .init(imageData: UIImage.init(systemName: "heart.fill")!.pngData()!, title: "Title"))
+        CollectionViewCellModel(tileModel: .init(imageData: UIImage(named: "AppIcon")!.pngData()!, title: "Title"))
     }
 }
 

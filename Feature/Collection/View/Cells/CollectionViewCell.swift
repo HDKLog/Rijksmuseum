@@ -36,7 +36,7 @@ class CollectionViewCell: UICollectionViewCell {
         itemTileView.configure(with: model.tileModel)
     }
 
-    func reset() {
+    override func prepareForReuse() {
         contentView.showAnimatedGradientSkeleton()
         itemTileView.configure(with: nil)
     }

@@ -329,7 +329,7 @@ final class CollectionPresenterTest: XCTestCase {
 
         sut.loadNextPage()
 
-        sut.itemModel(on: 0, at: 0) { model in
+        sut.itemModel(at: IndexPath(row: 0, section: 0)) { model in
             loadedModel = model
         }
 
@@ -353,7 +353,7 @@ final class CollectionPresenterTest: XCTestCase {
 
         sut.loadNextPage()
 
-        sut.itemModel(on: 0, at: 0) { _ in }
+        sut.itemModel(at: IndexPath(row: 0, section: 0)) { _ in }
 
         XCTAssertTrue(view.displayErrorCalled)
     }
@@ -375,7 +375,7 @@ final class CollectionPresenterTest: XCTestCase {
 
         sut.loadNextPage()
 
-        sut.itemModel(on: 0, at: 0) { _ in }
+        sut.itemModel(at: IndexPath(row: 0, section: 0)) { _ in }
 
         XCTAssertEqual(interactor.loadCollectionItemImageDataCalls, 2)
     }
@@ -413,7 +413,7 @@ final class CollectionPresenterTest: XCTestCase {
 
         sut.loadCollection()
 
-        sut.chooseItem(itemIndex: 0, on: 0)
+        sut.chooseItem(at: IndexPath(row: 0, section: 0))
 
         XCTAssertTrue(router.routeToArtDetailCalled)
     }
@@ -435,7 +435,7 @@ final class CollectionPresenterTest: XCTestCase {
 
         sut.loadCollection()
 
-        sut.chooseItem(itemIndex: 0, on: 0)
+        sut.chooseItem(at: IndexPath(row: 0, section: 0))
 
         XCTAssertEqual(routingItemId, sut.collectionPages[0].items[0].id)
     }
@@ -457,17 +457,5 @@ extension CollectionPage {
             )
         let items = Array(repeating: item, count: 3)
         return CollectionPage(title: "Page 0", items: items)
-    }
-}
-
-extension CollectionViewCellModel: Equatable {
-    public static func == (lhs: CollectionViewCellModel, rhs: CollectionViewCellModel) -> Bool {
-        lhs.tileModel == rhs.tileModel
-    }
-}
-
-extension CollectionViewHeaderModel: Equatable {
-    public static func == (lhs: CollectionViewHeaderModel, rhs: CollectionViewHeaderModel) -> Bool {
-        lhs.title == rhs.title
     }
 }

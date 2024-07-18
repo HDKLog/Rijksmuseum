@@ -1,5 +1,5 @@
 import Foundation
 
-struct CollectionViewCellModel {
+struct CollectionViewCellModel:Hashable {
     let tileModel: ItemTileView.Model
 }

@@ -6,14 +6,14 @@ protocol ArtDetailsRouting {
 
 class ArtDetailsRouter: ArtDetailsRouting {
 
-    let navigationController: UINavigationController!
+    weak var navigationController: UINavigationController?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
     func routeToCollection() {
-        navigationController.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 
 }

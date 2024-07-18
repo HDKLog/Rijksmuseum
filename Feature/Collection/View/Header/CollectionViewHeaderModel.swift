@@ -1,5 +1,5 @@
 import Foundation
 
-struct CollectionViewHeaderModel {
+struct CollectionViewHeaderModel: Hashable {
     let title: String?
 }

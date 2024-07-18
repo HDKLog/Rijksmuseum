@@ -11,7 +11,6 @@ class CollectionViewController: UIViewController, CollectionView {
 
     var presenter: CollectionPresenting?
 
-    var cachedItemsModels: [IndexPath: CollectionViewCellModel] = [:]
     var loadingNextPage = false
     var loadingIndexPaths: Set<IndexPath> = []
 
@@ -161,17 +160,12 @@ extension CollectionViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reusableId, for: indexPath)
         if let collectionCell = cell as? CollectionViewCell {
 
-            collectionCell.reset()
-
-            if let model = cachedItemsModels[indexPath] {
-                collectionCell.configure(with: model)
-            } else if !loadingIndexPaths.contains(indexPath) {
+            if !loadingIndexPaths.contains(indexPath) {
                 loadingGroup.enter()
                 loadingIndexPaths.insert(indexPath)
-                presenter?.itemModel(on: indexPath.section, at: indexPath.row) { model in
+                presenter?.itemModel(at: indexPath) { model in
 
                     self.loadingGroup.leave()
-                    self.cachedItemsModels[indexPath] = model
                     self.loadingIndexPaths.remove(indexPath)
                     collectionCell.configure(with: model)
                 }
@@ -233,7 +227,7 @@ extension CollectionViewController: UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter?.chooseItem(itemIndex: indexPath.row, on: indexPath.section)
+        presenter?.chooseItem(at: indexPath)
     }
 }
 

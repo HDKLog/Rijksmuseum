@@ -63,11 +63,11 @@ enum DesignBook {
         private static let table: String = "DesignLocalizables"
 
         enum ErrorAlert {
-            static var title: String { String(localized: "ERROR_ALERT_TITLE", table: Text.table) }
+            static var title: String { NSLocalizedString("ERROR_ALERT_TITLE", tableName: Text.table, comment: "") }
 
             enum Action {
                 enum OK {
-                    static var title:  String { String(localized: "ERROR_ALERT_ACTION_OK_TITLE", table: Text.table) }
+                    static var title:  String { NSLocalizedString("ERROR_ALERT_ACTION_OK_TITLE", tableName: Text.table, comment: "") }
                 }
             }
         }

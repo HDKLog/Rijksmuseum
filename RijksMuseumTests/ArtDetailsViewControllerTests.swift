@@ -85,7 +85,7 @@ class ArtDetailsViewControllerTests: XCTestCase {
     }
 
     func test_viewController_updateImage_setsImageToImageView() {
-        let data = UIImage.init(systemName: "heart.fill")!.pngData()!
+        let data = UIImage(named: "AppIcon")!.pngData()!
         let presenter = Presenter()
         let sut = makeSut(presenter: presenter)
 

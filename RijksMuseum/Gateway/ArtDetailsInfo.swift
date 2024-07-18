@@ -1,8 +1,8 @@
 import Foundation
 
-struct ArtDetailsInfo: Codable {
-    struct Art: Codable {
-        struct ImageInfo: Codable {
+struct ArtDetailsInfo: Decodable {
+    struct Art: Decodable {
+        struct ImageInfo: Decodable {
             let guid: String
             let offsetPercentageX: Int
             let offsetPercentageY: Int
